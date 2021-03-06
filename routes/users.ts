@@ -8,7 +8,7 @@ router.get('/', async function(req, res, next) {
   res.json(await storage.getList());
 });
 
-router.get('/:id', function(req, res, next) {
+router.get('/:id', async function(req, res, next) {
   res.json(req.params);
 });
 

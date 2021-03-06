@@ -22,6 +22,8 @@ const readData = async (): Promise<UserType[]> => {
         };
 
         console.warn(`Error ${e.message}`);
+
+        return [];
     }
 };
 
