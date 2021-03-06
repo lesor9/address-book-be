@@ -6,7 +6,7 @@
     "start": "node ./dist/bin/www",
     "build": "tsc",
     "fullstart": "npm run build && npm run start",
-    "postinstall": "npm run build && mv -i -v storage/initData.json dist/storage/"
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@types/morgan": "^1.9.2",
