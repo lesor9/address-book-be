@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./dist/bin/www",
     "build": "tsc",
-    "fullstart": "npm run build && npm run start"
+    "fullstart": "npm run build && npm run start",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
