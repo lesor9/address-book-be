@@ -1,26 +1,19 @@
 import { Router } from 'express';
+import * as storage from '../storage/fs';
 
 const router = Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.json(req.params);
+router.get('/', async function(req, res, next) {
+  res.json(await storage.getList());
 });
 
 router.get('/:id', function(req, res, next) {
   res.json(req.params);
 });
 
-router.post('/', function(req, res, next) {
-  res.json([]);
-});
-
-router.put('/:id', function(req, res, next) {
-  res.json([]);
-});
-
-router.delete('/:id', function(req, res, next) {
-  res.json([]);
+router.post('/', async function(req, res, next) {
+  res.json(await storage.createUser(req.body));
 });
 
 export default router;

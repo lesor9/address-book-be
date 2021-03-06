@@ -6,9 +6,10 @@
     "start": "node ./dist/bin/www",
     "build": "tsc",
     "fullstart": "npm run build && npm run start",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build && mv -i -v storage/initData.json dist/storage/"
   },
   "dependencies": {
+    "@types/morgan": "^1.9.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
