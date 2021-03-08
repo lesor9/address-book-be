@@ -1,7 +1,16 @@
 import * as mongoose from 'mongoose';
 
 const url = process.env.MONGODB_URI;
-mongoose.connect(url , { useUnifiedTopology: true, useNewUrlParser: true });
+
+async function establishConnection() {
+    try {
+        await mongoose.connect(url , { useUnifiedTopology: true, useNewUrlParser: true });
+      } catch (error) {
+        console.log(error);
+    }  
+}
+establishConnection();
+
 
 const Schema = mongoose.Schema;
 const employeeScheme = new Schema({
