@@ -1,16 +1,17 @@
 import { Router } from 'express';
 import * as storage from '../storage/mongo';
 import { sortEmployeesByName, filterEmployees } from '../helpers/employee';
+import IEmployee from '../interfaces/employeeInterfaces'
 
-const router = Router();
+const router: Router = Router();
 
 router.get('/', async function(req, res, next) {
-  let list = await storage.getList();
+  let list: IEmployee[] = await storage.getList();
   sortEmployeesByName(list);
 
   const { query } = req.query;
   if (query) {
-    list = filterEmployees(list, query);
+    list = filterEmployees(list, query.toString());
   }
 
   res.json(list);

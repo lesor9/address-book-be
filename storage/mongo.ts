@@ -42,10 +42,10 @@ const employeeScheme = new Schema({
   is_absent: Boolean,
   departmentIcon: String,
 });
-const Employee = mongoose.model("employee", employeeScheme);
+const Employee: mongoose.Model<any> = mongoose.model("employee", employeeScheme);
 
 
-const getList = () => {
+const getList = (): mongoose.Query<any[], any, {}> => {
     return Employee.find({}, function(err, collection){
         if(err) return console.log(err);
 
@@ -53,7 +53,7 @@ const getList = () => {
     });
 };
 
-const createEmployee = (employee) => {
+const createEmployee = (employee: object): any => {
     const employeeToDB = new Employee(employee);
  
     return employeeToDB.save(function(err){
@@ -63,7 +63,7 @@ const createEmployee = (employee) => {
     });
 }
 
-const getEmployee = (id) => {
+const getEmployee = (id: string): mongoose.Query<any[], any, {}> => {
     return Employee.findOne({employee_id: id}, function(err, obj){
         if(err) return console.log(err);
 
