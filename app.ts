@@ -1,8 +1,6 @@
 import * as express from 'express';
 import * as logger from 'morgan';
-
-import indexRouter from './routes/index';
-import usersRouter from './routes/users'
+import employeesRouter from './routes/employees'
 
 const app = express();
 
@@ -19,8 +17,8 @@ app.use((req, res, next) => {
   next()
 });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/', indexRouter);
+app.use('/employees', employeesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
