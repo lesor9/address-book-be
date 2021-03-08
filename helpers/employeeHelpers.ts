@@ -1,4 +1,4 @@
-import IEmployee from '../interfaces/employeeInterfaces';
+import IEmployee from '../interfaces/employeeInterface';
 
 function sortEmployeesByName(employers: IEmployee[]): void {
     employers.sort((obj1, obj2) => {
@@ -17,8 +17,8 @@ function filterEmployees(employees: IEmployee[], query: string): IEmployee[] {
         const nativeName: string = `${employee.first_native_name} ${employee.last_native_name}`;
 
         return(
-            name.toLocaleLowerCase().includes(query.toLocaleLowerCase().trim()) ||
-            nativeName.toLocaleLowerCase().includes(query.toLocaleLowerCase().trim())
+            name.toLocaleLowerCase().includes(query) ||
+            nativeName.toLocaleLowerCase().includes(query)
         );
     });
 }

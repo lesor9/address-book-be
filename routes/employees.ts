@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import * as storage from '../storage/mongo';
-import { sortEmployeesByName, filterEmployees } from '../helpers/employee';
-import IEmployee from '../interfaces/employeeInterfaces'
+import { sortEmployeesByName, filterEmployees } from '../helpers/employeeHelpers';
+import IEmployee from '../interfaces/employeeInterface'
 
 const router: Router = Router();
 
